@@ -1,4 +1,4 @@
-package com.example.moviemania.util
+package com.example.surveynow.ui
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
@@ -8,7 +8,7 @@ import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asSharedFlow
 import kotlinx.coroutines.launch
 
-abstract class MovieManiaViewModel<UiState, UiEvent, UiAction> : ViewModel() {
+abstract class SurveyNowViewModel<UiState, UiEvent, UiAction> : ViewModel() {
 
     protected val _events = MutableSharedFlow<UiEvent>()
 

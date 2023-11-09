@@ -1,12 +1,10 @@
-package com.example.moviemania.ui.navigation
+package com.example.surveynow.ui.navigation
 
 sealed class Screen(val route: String) {
-    object Home: Screen("home")
-    object WatchList: Screen("watchList")
-    object MovieDetails: Screen("movieDetails")
+    object Welcome: Screen("welcome")
+    object CreateAccount: Screen("createAccount")
 
-    object MovieDetailArgs {
-        const val MovieId = "movieId"
+    object NavArgs {
     }
 
     fun withArgs(vararg args: Int): String {

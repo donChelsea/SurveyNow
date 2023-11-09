@@ -1,3 +1,14 @@
 <resources>
     <string name="app_name">SurveyNow</string>
+
+    <string name="tagline">Take better surveys, now!</string>
+    <string name="sign_in_or_create">Sign in or create an account</string>
+    <string name="email_address">Email address</string>
+    <string name="name">Name</string>
+    <string name="password">Password</string>
+    <string name="or">or</string>
+    <string name="continue_text">Continue</string>
+    <string name="finish">Finish</string>
+    <string name="sign_in_as_guest">Sign in as guest</string>
+    <string name="create_account">Create a new account</string>
 </resources>

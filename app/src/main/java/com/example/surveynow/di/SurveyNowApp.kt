@@ -1,4 +1,7 @@
 package com.example.surveynow.di
 
-class SurveyNowApp {
-}
+import android.app.Application
+import dagger.hilt.android.HiltAndroidApp
+
+@HiltAndroidApp
+class SurveyNowApp: Application()
