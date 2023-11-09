@@ -1,16 +1,18 @@
 plugins {
   id 'com.android.application'
   id 'org.jetbrains.kotlin.android'
+  id 'kotlin-kapt'
+  id 'dagger.hilt.android.plugin'
 }
 
 android {
   namespace 'com.example.surveynow'
-  compileSdk 33
+  compileSdk 34
 
   defaultConfig {
     applicationId "com.example.surveynow"
     minSdk 24
-    targetSdk 33
+    targetSdk 34
     versionCode 1
     versionName "1.0"
 
@@ -64,4 +66,17 @@ dependencies {
   androidTestImplementation 'androidx.compose.ui:ui-test-junit4'
   debugImplementation 'androidx.compose.ui:ui-tooling'
   debugImplementation 'androidx.compose.ui:ui-test-manifest'
+
+  // Dagger Hilt
+  implementation 'com.google.dagger:dagger:2.43.1'
+  kapt 'com.google.dagger:dagger-compiler:2.43.1'
+  implementation("com.google.dagger:hilt-android:2.43.1")
+  kapt("com.google.dagger:hilt-android-compiler:2.43.1")
+
+  // Navigation
+  implementation "androidx.navigation:navigation-compose:2.7.5"
+  implementation "androidx.hilt:hilt-navigation-compose:1.1.0-alpha01"
+
+  // ViewModel
+  implementation 'androidx.fragment:fragment-ktx:1.5.5'
 }
