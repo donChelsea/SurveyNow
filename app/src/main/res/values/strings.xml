@@ -11,4 +11,10 @@
     <string name="finish">Finish</string>
     <string name="sign_in_as_guest">Sign in as guest</string>
     <string name="create_account">Create a new account</string>
+    <string name="title_best_movie">Best Movie</string>
+    <string name="title_best_fries">Best Fries</string>
+    <string name="title_favorite_holiday">Favorite Holiday</string>
+    <string name="back">Back</string>
+    <string name="next">Next</string>
+    <string name="results">Results</string>
 </resources>

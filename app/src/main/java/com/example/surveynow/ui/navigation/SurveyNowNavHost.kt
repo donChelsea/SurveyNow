@@ -5,14 +5,18 @@ import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
-import com.example.surveynow.ui.screens.create_account.ui.CreateAccountScreen
-import com.example.surveynow.ui.screens.welcome.WelcomeViewModel
-import com.example.surveynow.ui.screens.welcome.ui.WelcomeScreen
+import com.example.surveynow.ui.screens.results.ResultsViewModel
+import com.example.surveynow.ui.screens.results.ui.ResultsScreen
+import com.example.surveynow.ui.screens.sign_in.SignInViewModel
+import com.example.surveynow.ui.screens.sign_in.ui.CreateAccountScreen
+import com.example.surveynow.ui.screens.sign_in.ui.WelcomeScreen
+import com.example.surveynow.ui.screens.survey.SurveyViewModel
+import com.example.surveynow.ui.screens.survey.ui.SurveyScreen
 
 @Composable
 fun SurveyNowNavHost() {
     val navController = rememberNavController()
-    val viewModel = hiltViewModel<WelcomeViewModel>()
+    val signInViewModel = hiltViewModel<SignInViewModel>()
 
     NavHost(
         navController = navController,
@@ -20,13 +24,29 @@ fun SurveyNowNavHost() {
     ) {
         composable(route = Screen.Welcome.route) {
             WelcomeScreen(
-                viewModel = viewModel,
+                viewModel = signInViewModel,
                 navController = navController,
             )
         }
         composable(route = Screen.CreateAccount.route) {
             CreateAccountScreen(
-                viewModel = viewModel,
+                viewModel = signInViewModel,
+                navController = navController,
+            )
+        }
+        composable(route = Screen.Survey.route) {
+            val surveyViewModel = hiltViewModel<SurveyViewModel>()
+
+            SurveyScreen(
+                viewModel = surveyViewModel,
+                navController = navController,
+            )
+        }
+        composable(route = Screen.Results.route) {
+            val resultsViewModel = hiltViewModel<ResultsViewModel>()
+
+            ResultsScreen(
+                viewModel = resultsViewModel,
                 navController = navController,
             )
         }

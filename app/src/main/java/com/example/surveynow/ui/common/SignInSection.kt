@@ -13,7 +13,6 @@ import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.OutlinedButton
 import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.Text
-import androidx.compose.material3.TextField
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
@@ -23,7 +22,6 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.TextStyle
-import androidx.compose.ui.text.input.ImeAction
 import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.text.input.TextFieldValue
 import androidx.compose.ui.text.style.TextAlign
@@ -31,49 +29,13 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.surveynow.R
-import com.example.surveynow.ui.screens.welcome.WelcomeUiAction
+import com.example.surveynow.ui.screens.sign_in.SignInUiAction
 import com.example.surveynow.ui.theme.MontserratFamily
-import com.example.surveynow.ui.theme.PacificaFamily
 import com.example.surveynow.util.isValidEmail
 
 @Composable
-fun AppHeader(
-    modifier: Modifier = Modifier,
-) {
-    Box(
-        modifier = modifier
-            .fillMaxWidth()
-            .padding(top = 44.dp),
-        contentAlignment = Alignment.Center
-    ) {
-        Column {
-            Text(
-                text = stringResource(id = R.string.app_name),
-                modifier = Modifier.fillMaxWidth(),
-                style = TextStyle(
-                    fontFamily = PacificaFamily,
-                    fontSize = 48.sp,
-                    textAlign = TextAlign.Center
-                )
-            )
-            Text(
-                text = stringResource(id = R.string.tagline),
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .padding(top = 18.dp),
-                style = TextStyle(
-                    fontSize = 16.sp,
-                    textAlign = TextAlign.Center,
-                    fontFamily = MontserratFamily
-                )
-            )
-        }
-    }
-}
-
-@Composable
 fun SignInSection(
-    onClick: (WelcomeUiAction) -> Unit,
+    onClick: (SignInUiAction) -> Unit,
     modifier: Modifier = Modifier,
 ) {
     var isEmailUpdated by remember { mutableStateOf(false) }
@@ -117,7 +79,7 @@ fun SignInSection(
                 )
             )
             Button(
-                onClick = { onClick(WelcomeUiAction.OnContinueClicked(email.text)) },
+                onClick = { onClick(SignInUiAction.OnContinueClicked(email.text)) },
                 enabled = isEmailUpdated,
                 modifier = Modifier
                     .fillMaxWidth()
@@ -142,7 +104,7 @@ fun SignInSection(
                 )
             )
             OutlinedButton(
-                onClick = { onClick(WelcomeUiAction.OnSignInAsGuestClicked) },
+                onClick = { onClick(SignInUiAction.OnSignInAsGuestClicked) },
                 modifier = Modifier
                     .fillMaxWidth()
                     .padding(top = 18.dp, start = 16.dp, end = 16.dp),
@@ -156,12 +118,6 @@ fun SignInSection(
             }
         }
     }
-}
-
-@Preview(showSystemUi = true)
-@Composable
-fun PreviewAppHeader() {
-    AppHeader()
 }
 
 @Preview(showSystemUi = true)
